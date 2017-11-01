@@ -9,7 +9,15 @@ class PezDispenser {
     }
 
     public void fill() {
-        pezCount = MAX_PEZ;
+        fill(MAX_PEZ); // Default Value (Overload methods)
+    }
+
+    public void fill(int pezAmount) {
+        pezCount += pezAmount;
+        if (pezAmount > MAX_PEZ) {
+            throw new IllegalArgumentException("Too many PEZ are being added");
+        }
+        pezCount = pezAmount;
     }
 
     public boolean isEmpty() {

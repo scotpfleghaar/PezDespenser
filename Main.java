@@ -21,5 +21,19 @@ public class Main {
         if (dispenser.isEmpty()) {
             System.out.println("Ate all the PEZ");
         }
+        dispenser.fill(4);
+        dispenser.fill(2);
+        while (dispenser.dispense()) {
+            System.out.println("CHOMP!");
+        }
+        try {
+            dispenser.fill(32);
+            System.out.println("I will never be called due to the exception");
+        } catch (IllegalArgumentException iae) {
+            System.out.println("Too Many");
+            System.out.printf("The Error was %s %n", iae.getMessage());
+
+        }
+
     }
 }
